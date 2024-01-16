@@ -63,14 +63,15 @@ class PaperlibCitationCountExtension extends PLExtension {
     }
 
     try {
-      const response = await PLAPI.networkTool.get(
+      const response = await PLExtAPI.networkTool.get(
         scrapeURL,
         {},
         1,
         5000,
+        true,
         true
       );
-      const parsedResponse = JSON.parse(response.body);
+      const parsedResponse = response.body;
 
       const citationCount = {
         semanticscholarId: "",
