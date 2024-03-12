@@ -46,20 +46,20 @@ class PaperlibCitationCountExtension extends PLExtension {
       },
     });
 
-    let scrapeURL;
+    let scrapeURL: string;
     if (paperEntity.doi !== "") {
-      scrapeURL = `https://api.semanticscholar.org/graph/v1/paper/${paperEntity.doi}?fields=title,citationCount,influentialCitationCount`;
+      scrapeURL = `https://api.paperlib.app/metadata/citationcount?doi=${paperEntity.doi}`;
     } else if (paperEntity.arxiv !== "") {
-      scrapeURL = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${
+      scrapeURL = `https://api.paperlib.app/metadata/citationcount?arxiv=${
         paperEntity.arxiv.toLowerCase().replace("arxiv:", "").split("v")[0]
-      }?fields=title,citationCount,influentialCitationCount`;
+      }`;
     } else {
-      scrapeURL = `https://api.semanticscholar.org/graph/v1/paper/search?query=${stringUtils.formatString(
+      scrapeURL = `https://api.paperlib.app/metadata/citationcount?title=${stringUtils.formatString(
         {
           str: paperEntity.title,
           whiteSymbol: true,
         }
-      )}&limit=10&fields=title,citationCount,influentialCitationCount`;
+      )}`;
     }
 
     try {
@@ -120,7 +120,13 @@ class PaperlibCitationCountExtension extends PLExtension {
         },
       });
     } catch (err) {
-      if ((err as Error).message === "Response code 404 (Not Found)") {
+      if ((err as Error).message.includes("404")) {
+        PLAPI.logService.warn(
+          "Citation count not found.",
+          "",
+          false,
+          "CitationCountExt"
+        );
         return;
       }
 

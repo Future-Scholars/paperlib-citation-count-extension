@@ -12,8 +12,8 @@ devDependencies:
     specifier: 16.18.1
     version: 16.18.1
   paperlib-api:
-    specifier: ^0.0.16
-    version: 0.0.16(typescript@5.3.3)(vue@3.4.14)
+    specifier: ^0.1.2
+    version: 0.1.2(typescript@5.3.3)(vue@3.4.14)
   prettier:
     specifier: ^3.1.1
     version: 3.1.1
@@ -449,7 +449,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 18.19.7
+      '@types/node': 16.18.1
       '@types/responselike': 1.0.3
     dev: true
 
@@ -464,7 +464,7 @@ packages:
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.19.7
+      '@types/node': 16.18.1
     dev: true
 
   /@types/node@16.18.1:
@@ -480,7 +480,7 @@ packages:
   /@types/responselike@1.0.3:
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
     dependencies:
-      '@types/node': 18.19.7
+      '@types/node': 16.18.1
     dev: true
 
   /@types/semver@7.5.6:
@@ -491,7 +491,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.19.7
+      '@types/node': 16.18.1
     dev: true
     optional: true
 
@@ -1801,8 +1801,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /paperlib-api@0.0.16(typescript@5.3.3)(vue@3.4.14):
-    resolution: {integrity: sha512-9pmIJZ042B7SQX/ITaK8EHCMUzO1VobAvWOsLorDfplKNz555oYvAzblWLbqZg1xQTKMKKgxF/kgJ1HfJI+2UA==}
+  /paperlib-api@0.1.2(typescript@5.3.3)(vue@3.4.14):
+    resolution: {integrity: sha512-mZhA2KrbYYFZdT2WVJWXwQYuL50jBdMph3hDIU04qRUx/1X4kWLlRuMG7YQCjz4WR+tj7WxXH2iLpdDYdEXegg==}
     engines: {node: '>=18.16.1'}
     dependencies:
       citation-js: 0.6.4
