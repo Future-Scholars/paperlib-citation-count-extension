@@ -39,9 +39,15 @@ class PaperlibCitationCountExtension extends PLExtension {
   }
 
   async getCitationCount(paperEntity: PaperEntity) {
+
+    const lang = await PLAPI.preferenceService.get("language");
+
+    const title = lang === "zh-CN" ? "引用次数" : "Citation Count";
+
+
     await PLAPI.uiSlotService.updateSlot("paperDetailsPanelSlot1", {
       "paperlib-citation-count": {
-        title: "Citation Count",
+        title: title,
         content: `N/A (N/A)`,
       },
     });
@@ -115,7 +121,7 @@ class PaperlibCitationCountExtension extends PLExtension {
 
       PLAPI.uiSlotService.updateSlot("paperDetailsPanelSlot1", {
         "paperlib-citation-count": {
-          title: "Citation Count",
+          title: title,
           content: `${citationCount.citationCount} (${citationCount.influentialCitationCount})`,
         },
       });
